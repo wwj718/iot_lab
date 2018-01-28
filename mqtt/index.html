@@ -7,8 +7,10 @@
 <script>
   //var client = mqtt.connect('ws://test.mosquitto.org:8080/mqtt') // you add a ws:// url here
   //var client = mqtt.connect('ws://broker.hivemq.com:8000/mqtt')
-  var client = mqtt.connect('ws://q.emqtt.com:8083/mqtt')
+  //var client = mqtt.connect('ws://q.emqtt.com:8083/mqtt')
   //var client = mqtt.connect('ws://test.mosca.io/mqtt')
+  var client = mqtt.connect('ws://127.0.0.1:8083/mqtt')
+  
   
   client.subscribe("mqtt/wwj_demo")
 
@@ -17,7 +19,7 @@
     client.end()
   })
 
-  client.publish("mqtt/wwj_demo", "hello world!")
+  client.publish("/World", "hello heheh!")
 </script>
 </body>
 </html>
