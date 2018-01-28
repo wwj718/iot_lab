@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>test Ws mqtt.js</title>
+</head>
+<body>
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<script>
+  //var client = mqtt.connect('ws://test.mosquitto.org:8080/mqtt') // you add a ws:// url here
+  //var client = mqtt.connect('ws://broker.hivemq.com:8000/mqtt')
+  var client = mqtt.connect('ws://q.emqtt.com:8083/mqtt')
+  //var client = mqtt.connect('ws://test.mosca.io/mqtt')
+  
+  client.subscribe("mqtt/wwj_demo")
+
+  client.on("message", function (topic, payload) {
+    alert([topic, payload].join(": "))
+    client.end()
+  })
+
+  client.publish("mqtt/wwj_demo", "hello world!")
+</script>
+</body>
+</html>
